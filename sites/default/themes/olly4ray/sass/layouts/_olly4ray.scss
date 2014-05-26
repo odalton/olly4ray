@@ -593,6 +593,16 @@ body.front {
     }
 
     @media screen and (max-width:350px) {
+
+      #block-views-accomodation-block {
+        .view-accomodation {
+          .views-row {
+            margin-left:0px !important;
+            margin-right:0px !important;
+          }
+        }
+      }
+
       p.title-tag {
         font-size: 60px;
         margin-top:80px;
@@ -613,8 +623,10 @@ body.front {
       }
 
       .view-accomodation {
-        margin-left: 0px;
-        margin-right: 0px;
+        .views-row {
+          margin-left: 0px;
+          margin-right: 0px;
+        }
       }
 
 
@@ -623,6 +635,16 @@ body.front {
     }
 
     @media screen and (max-width:300px) {
+
+      #block-views-accomodation-block {
+        .view-accomodation {
+          .views-row {
+            margin-left:0px !important;
+            margin-right:0px !important;
+          }
+        }
+      }
+
       p.title-tag {
         font-size: 50px;
         margin-top:80px;
@@ -643,8 +665,10 @@ body.front {
       }
 
       .view-accomodation {
-        margin-left: 0px;
-        margin-right: 0px;
+        .views-row {
+          margin-left: 0px;
+          margin-right: 0px;
+        }
       }
 
 
@@ -959,4 +983,93 @@ body.section-who-is-coming {
 
   }
 
+}
+
+
+@media screen and (max-width:350px) {
+
+  #block-views-accomodation-block {
+    .view-accomodation {
+      .views-row {
+        margin-left:0px !important;
+        margin-right:0px !important;
+      }
+    }
+  }
+
+  p.title-tag {
+    font-size: 60px;
+    margin-top:80px;
+    margin-bottom:40px;
+  }
+
+  p.title-date {
+    font-size: 70px;
+    margin-top:10px;
+  }
+
+  body.section-travel,
+  body.section-accommodation {
+    #block-skyscanner-skyscanner,
+    #block-views-accomodation-block {
+      margin-left:-5px;
+    }
+  }
+
+  .view-accomodation {
+    .views-row {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
+
+
+
+
+}
+
+@media screen and (max-width:300px) {
+
+  #block-views-accomodation-block {
+    .view-accomodation {
+      .views-row {
+        margin-left:0px !important;
+        margin-right:0px !important;
+      }
+    }
+  }
+
+  p.title-tag {
+    font-size: 50px;
+    margin-top:80px;
+    margin-bottom:40px;
+  }
+
+  p.title-date {
+    font-size: 60px;
+    margin-top:10px;
+  }
+
+  body.section-travel,
+  body.section-accommodation {
+    #block-skyscanner-skyscanner,
+    #block-views-accomodation-block {
+      margin-left:-5px;
+    }
+  }
+
+  .view-accomodation {
+    .views-row {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
+
+
+}
+
+body.section-slightly-planned-fun {
+  p.submitted {
+    display: none;
+  }
 }
