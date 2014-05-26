@@ -581,7 +581,7 @@ body.front {
 
     @media screen and (max-width:495px) {
       p.title-tag {
-        font-size: 70px;
+        font-size: 60px;
         margin-top:80px;
         margin-bottom:40px;
       }
@@ -590,8 +590,34 @@ body.front {
         font-size: 70px;
         margin-top:10px;
       }
-
     }
+
+    @media screen and (max-width:350px) {
+      p.title-tag {
+        font-size: 60px;
+        margin-top:80px;
+        margin-bottom:40px;
+      }
+
+      p.title-date {
+        font-size: 70px;
+        margin-top:10px;
+      }
+    }
+
+    @media screen and (max-width:300px) {
+      p.title-tag {
+        font-size: 50px;
+        margin-top:80px;
+        margin-bottom:40px;
+      }
+
+      p.title-date {
+        font-size: 60px;
+        margin-top:10px;
+      }
+    }
+
   }
 
 }
