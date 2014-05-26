@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function rsvp_form_webform_client_form_16_alter(&$form, &$form_state, $form_id) {
+
+  if(isset($form) && $form_id == "webform_client_form_16") {
+    $form['#action'] = "rsvp";
+  }
+
+}

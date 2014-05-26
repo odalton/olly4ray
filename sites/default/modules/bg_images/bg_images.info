@@ -1,0 +1,5 @@
+name = BG Images
+description = Adds bg images via backstretch to the basic page content type.
+package = OLLY 4 RAY SETTINGS
+core = 7.x
+version = "7.x-0.1"

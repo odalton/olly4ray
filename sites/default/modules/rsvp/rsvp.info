@@ -1,0 +1,4 @@
+name = RSVP Webform
+description = Performs a formalter on the rsvp webform to update the action of the form
+core = 7.x
+package = "OLLY 4 RAY SETTINGS"

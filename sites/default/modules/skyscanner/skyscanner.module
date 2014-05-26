@@ -1,0 +1,196 @@
+<?php
+
+
+/**
+ * Implements hook_update_N().
+ *
+ *
+ */
+function skyscanner_update_7001(&$sandbox) {
+//  dsm($sandbox);
+  variable_set('olly4ray_skyscanner_api', '229c883c-2dca-4e00-9202-f7030559d91c');
+  return '';
+}
+
+function skyscanner_update_7002(&$sandbox) {
+//  dsm($sandbox);
+  variable_set('olly4ray_skyscanner_api', '229c883c-2dca-4e00-9202-f7030559d91c');
+  variable_set('olly4ray_skyscanner_flights', '<script type="text/javascript" src="//api.skyscanner.net/api.ashx?key=229c883c-2dca-4e00-9202-f7030559d91c"></script>
+<script type="text/javascript">
+   skyscanner.load("snippets","2");
+   function main(){
+       var snippet = new skyscanner.snippets.SearchPanelControl();
+       snippet.setShape("leaderboard");
+       snippet.setCulture("en-GB");
+       snippet.setCurrency("GBP");
+       snippet.setMarket("UK");
+       snippet.setDeparture("LOND", false);
+       snippet.setDestination("DPS", false);
+       snippet.setProduct("flights","1");
+
+       snippet.draw(document.getElementById("snippet_searchpanel"));
+   }
+   skyscanner.setOnLoadCallback(main);
+</script>
+<div id="snippet_searchpanel" style="width: auto; height:auto;"></div>');
+
+  variable_set('olly4ray_skyscanner_hotels', '<script type="text/javascript" src="//api.skyscanner.net/api.ashx?key=229c883c-2dca-4e00-9202-f7030559d91c"></script>
+<script type="text/javascript">
+   skyscanner.load("snippets","2");
+   function main(){
+       var snippet = new skyscanner.snippets.SearchPanelControl();
+       snippet.setShape("leaderboard");
+       snippet.setCulture("en-GB");
+       snippet.setCurrency("GBP");
+       snippet.setMarket("UK");
+       snippet.setProduct("hotels","1");
+
+       snippet.draw(document.getElementById("snippet_searchpanel"));
+   }
+   skyscanner.setOnLoadCallback(main);
+</script>
+<div id="snippet_searchpanel" style="width: auto; height:auto;"></div>');
+
+
+  return '';
+}
+
+
+/**
+ * Implements hook_menu().
+ *
+ *
+ */
+function skyscanner_menu() {
+  $items['admin/config/settings/skyscanner'] = array(
+    'title' => 'Skyscanner',
+    'description' => 'A form to add skyscanner api codes.',
+    'page callback' => 'drupal_get_form', //this is the function that will be called when the page is accessed.  for a form, use drupal_get_form
+    'page arguments' => array('skyscanner_form'), //put the name of the form here
+    'access callback' => TRUE
+  );
+
+  return $items;
+
+}
+
+
+/**
+ * Implements hook_form().
+ *
+ *
+ */
+function skyscanner_form($node, &$form_state) {
+
+//  dsm($node);
+
+  $form['title'] = array(
+    '#type' => 'textfield',
+    '#title' => t('API Widget Key'),
+    '#default_value' => variable_get('olly4ray_skyscanner_api'),
+    '#required' => TRUE,
+
+    );
+
+  $form['flights'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Flight embed script'),
+    '#default_value' => variable_get('olly4ray_skyscanner_flights'),
+    '#required' => FALSE,
+
+  );
+
+  $form['hotels'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Hotel embed script'),
+    '#default_value' => variable_get('olly4ray_skyscanner_hotels'),
+    '#required' => FALSE,
+
+  );
+
+
+  $form['submit_button'] = array(
+    '#type' => 'submit',
+    '#value' => t('Click Here!'),
+
+  );
+
+  return $form;
+}
+
+
+/**
+ * @param $form
+ * @param $form_state
+ */
+function skyscanner_form_submit($form, &$form_state) {
+//  dsm($form);
+//  dsm($form_state);
+//  dsm('submitted');
+
+  if(isset($form_state['input']['title'])) {
+    variable_set('olly4ray_skyscanner_api', $form_state['input']['title']);
+  }
+
+  if(isset($form_state['input']['flights'])) {
+    variable_set('olly4ray_skyscanner_flights', $form_state['input']['flights']);
+  }
+
+  if(isset($form_state['input']['hotels'])) {
+    variable_set('olly4ray_skyscanner_hotels', $form_state['input']['hotels']);
+  }
+
+}
+
+
+/**
+ * Implements hook_block_info().
+ *
+ *
+ */
+function skyscanner_block_info() {
+  // This example comes from node.module.
+  $blocks['skyscanner'] = array(
+    'info' => t('Skyscanner'),
+    'cache' => DRUPAL_NO_CACHE
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ *
+ */
+function skyscanner_block_view($delta = '') {
+  // This example is adapted from node.module.
+  $block = array();
+
+  switch ($delta) {
+    case 'skyscanner':
+      $block['subject'] = t('Skyscanner');
+      $block['content'] = array(
+        '#theme' => 'skyscanner_theme_tpl',
+        '#title' => t('Skyscanner'),
+      );
+    break;
+  }
+  return $block;
+
+}
+
+
+/**
+ * Implements hook_theme().
+ *
+ *
+ */
+function skyscanner_theme($existing, $type, $theme, $path) {
+  return array(
+    'skyscanner_theme_tpl' => array(
+      'template' => 'templates/skyscanner',
+      'variables' => array('var_name'=>NULL),
+    ),
+  );
+
+}

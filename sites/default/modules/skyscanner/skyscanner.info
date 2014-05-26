@@ -1,0 +1,4 @@
+name = Skyscanner Module
+description = Adds admin forms for pasting skyscanner scripts and the api code
+core = 7.x
+package = "OLLY 4 RAY SETTINGS"

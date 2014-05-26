@@ -1,0 +1,4 @@
+name = jQuery Versions
+description = Provides Jquery to admin pages, defaulting them to using 1.5.1
+core = 7.x
+package = "OLLY 4 RAY SETTINGS"

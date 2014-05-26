@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * Implements hook_init().
+ *
+ *
+ */
+function isotope_init() {
+  if (path_is_admin(current_path())) {
+    //do nothing
+  } else {
+    drupal_add_js(drupal_get_path('module', 'isotope') . '/js/jquery.isotope.min.js');
+    drupal_add_js(drupal_get_path('module', 'isotope') . '/js/isotope.js');
+    drupal_add_css(drupal_get_path('module', 'isotope') . '/css/isotope.css');
+  }
+
+}
+
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function isotope_preprocess_node(&$variables) {
+
+
+
+  //$string = substr($string,0,10).'...';
+
+
+  if($variables['type'] == "our_story_content") {
+
+    if($variables['view_mode'] == "teaser") {
+
+      $variables['elements']['before_link'] = array(
+        '#weight' => -500,
+        '#markup' => '<a href="'.url('node/'.$variables['nid']).'"/>'
+      );
+
+      $variables['elements']['after_link'] = array(
+        '#weight' => 500,
+        '#markup' => '</a>'
+      );
+
+
+    }
+
+    $node = node_load($variables['nid']);
+    $variables['classes_array'][] = $node->field_style['und'][0]['value'];
+  }
+
+
+}
+
+
+
+

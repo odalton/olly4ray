@@ -1,0 +1,5 @@
+name = Facebook
+description = Brings in facebook api for olly4ray fb app
+package = OLLY 4 RAY SETTINGS
+core = 7.x
+version = "7.x-0.1"

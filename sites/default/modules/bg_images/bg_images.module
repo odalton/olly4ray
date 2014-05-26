@@ -1,0 +1,48 @@
+<?php
+
+//
+
+/**
+ * Implements hook_init().
+ *
+ *
+ */
+function bg_images_init() {
+  if (!path_is_admin(current_path())) {
+    drupal_add_js(drupal_get_path('module', 'bg_images') .'/js/jquery.backstretch.min.js');
+    drupal_add_js(drupal_get_path('module', 'bg_images') .'/js/bg_images.js');
+  }
+}
+
+/**
+ * Implements hook_page_alter().
+ *
+ *
+ */
+function bg_images_page_alter(&$page) {
+
+  if(isset($page) && $page['#type'] == "page") {
+    if(isset($page['content']['system_main']['nodes'])) {
+      $childrenIndex = element_children($page['content']['system_main']['nodes']);
+      $childIndex = $childrenIndex[0];
+
+      if(isset($page['content']['system_main']['nodes'][$childIndex]['body']['#object']->field_image['und'][0]['uri'])) {
+        $imageURI = $page['content']['system_main']['nodes'][$childIndex]['body']['#object']->field_image['und'][0]['uri'];
+        drupal_add_js(array('backstretch' => array('key' => file_create_url($imageURI))), 'setting');
+      }
+      else {
+        drupal_add_js(array('backstretch' => array('key' => 'empty')), 'setting');
+      }
+    } else {
+      drupal_add_js(array('backstretch' => array('key' => 'empty')), 'setting');
+    }
+
+
+
+
+  }
+}
+
+
+
+

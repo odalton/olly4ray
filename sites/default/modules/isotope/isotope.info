@@ -1,0 +1,4 @@
+name = Isotope Layout Controller
+description = Adds a isotope javascript plugin to a view with a specific css class.
+core = 7.x
+package = "OLLY 4 RAY SETTINGS"

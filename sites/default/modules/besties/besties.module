@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function besties_views_pre_render(&$view) {
+  //557000699 sam
+  //502164696 chris
+  //519296998 phill
+
+  //https://www.facebook.com/profile.php?id=223201373 - ant
+  //https://www.facebook.com/profile.php?id=560132945 - emily
+  //https://www.facebook.com/profile.php?id=877465124 - laura
+  //https://www.facebook.com/profile.php?id=197810461 - rosie king
+  //https://www.facebook.com/profile.php?id=504700926 - pippa
+
+  if(isset($view->name) && $view->name == "facebook_view") {
+
+    foreach($view->result as $key => $item) {
+      $fb_user_id = $item->_field_data['nid']['entity']->field_id['und'][0]['value'];
+      $firstname  = $item->field_field_firstname[0]['rendered']['#markup'];
+      $surname    = $item->field_field_surname[0]['rendered']['#markup'];
+
+      switch($fb_user_id) {
+
+        case '557000699':
+          $item->field_field_surname[0]['rendered']['#markup'] = '<a target="_blank" href="https://www.facebook.com/profile.php?id='.$fb_user_id.'">
+          <h3>Bestman<br/>'. $firstname . '<br/>' . $surname . '</h3></a>';
+        break;
+
+        case '502164696':
+          $item->field_field_surname[0]['rendered']['#markup'] = '<a target="_blank" href="https://www.facebook.com/profile.php?id='.$fb_user_id.'">
+          <h3>Bestman<br/>'. $firstname . '<br/>' . $surname . '</h3></a>';
+        break;
+
+        case '519296998':
+          $item->field_field_surname[0]['rendered']['#markup'] = '<a target="_blank" href="https://www.facebook.com/profile.php?id='.$fb_user_id.'">
+          <h3>Bestman<br/>'. $firstname . '<br/>' . $surname . '</h3></a>';
+        break;
+
+        case '504700926':
+          $item->field_field_surname[0]['rendered']['#markup'] = '<a target="_blank" href="https://www.facebook.com/profile.php?id='.$fb_user_id.'">
+          <h3>Bridesmaid<br/>'. $firstname . '<br/>' . $surname . '</h3></a>';
+        break;
+
+        case '223201373':
+          $item->field_field_surname[0]['rendered']['#markup'] = '<a target="_blank" href="https://www.facebook.com/profile.php?id='.$fb_user_id.'">
+          <h3>Bridesmaid<br/>'. $firstname . '<br/>' . $surname . '</h3></a>';
+        break;
+
+        case '197810461':
+          $item->field_field_surname[0]['rendered']['#markup'] = '<a target="_blank" href="https://www.facebook.com/profile.php?id='.$fb_user_id.'">
+          <h3>Bridesmaid<br/>'. $firstname . '<br/>' . $surname . '</h3></a>';
+        break;
+
+        case '877465124':
+          $item->field_field_surname[0]['rendered']['#markup'] = '<a target="_blank" href="https://www.facebook.com/profile.php?id='.$fb_user_id.'">
+          <h3>Bridesmaid<br/>'. $firstname . '<br/>' . $surname . '</h3></a>';
+        break;
+
+        case '877465124':
+          $item->field_field_surname[0]['rendered']['#markup'] = '<a target="_blank" href="https://www.facebook.com/profile.php?id='.$fb_user_id.'">
+          <h3>Bridesmaid<br/>'. $firstname . '<br/>' . $surname . '</h3></a>';
+        break;
+
+        case '560132945':
+          $item->field_field_surname[0]['rendered']['#markup'] = '<a target="_blank" href="https://www.facebook.com/profile.php?id='.$fb_user_id.'">
+          <h3>Maid of Honor<br/>'. $firstname . '<br/>' . $surname . '</h3></a>';
+        break;
+
+
+
+
+        default:
+          $item->field_field_surname[0]['rendered']['#markup'] = '<a target="_blank" href="https://www.facebook.com/profile.php?id='.$fb_user_id.'">
+          <h3>'. $firstname . '<br/>' . $surname . '</h3></a>';
+      }
+    }
+  }
+}
