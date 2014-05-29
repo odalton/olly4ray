@@ -243,18 +243,19 @@ body.not-logged-in {
         max-height: 300px;
       }
       .field-name-field-summary {
-        position: absolute;
-        bottom:0px;
-        left:0px;
-        font-size: 12px;
-        line-height: 1.5;
-        width:100%;
-        padding-top:10px;
-        padding-bottom:10px;
-        padding-left:5px;
-        opacity: 0.8;
-        background-color: #ffffff;
-        color: #000000;
+        display: none;
+//        position: absolute;
+//        bottom:0px;
+//        left:0px;
+//        font-size: 12px;
+//        line-height: 1.5;
+//        width:100%;
+//        padding-top:10px;
+//        padding-bottom:10px;
+//        padding-left:5px;
+//        opacity: 0.8;
+//        background-color: #ffffff;
+//        color: #000000;
 
       }
       .field-name-body {
@@ -302,20 +303,21 @@ body.not-logged-in {
         }
       }
       .field-name-body {
-        position: absolute;
-        padding-top:10px;
-        padding-left: 5px;
-        padding-bottom:10px;
-        left:0px;
-        bottom:0px;
-        font-size: 12px;
-        line-height: 1.5;
-        opacity: 0.8;
-        background-color: #ffffff;
-        color: #000000;
+        display: none;
+//        position: absolute;
+//        padding-top:10px;
+//        padding-left: 5px;
+//        padding-bottom:10px;
+//        left:0px;
+//        bottom:0px;
+//        font-size: 12px;
+//        line-height: 1.5;
+//        opacity: 0.8;
+//        background-color: #ffffff;
+//        color: #000000;
       }
       .field-name-body {
-        display: block;
+//        display: block;
       }
       .links {
       }
@@ -338,6 +340,7 @@ body.not-logged-in {
 
           margin:0px;
           padding-left:5px;
+          padding-right:5px;
         }
       }
       .field-name-field-date {
@@ -357,20 +360,21 @@ body.not-logged-in {
         }
       }
       .field-name-body {
-        position: absolute;
-        padding-top:10px;
-        padding-left: 5px;
-        padding-bottom:10px;
-        left:0px;
-        bottom:0px;
-        font-size: 12px;
-        line-height: 1.5;
-        opacity: 0.8;
-        background-color: #ffffff;
-        color: #000000;
+        display: none;
+//        position: absolute;
+//        padding-top:10px;
+//        padding-left: 5px;
+//        padding-bottom:10px;
+//        left:0px;
+//        bottom:0px;
+//        font-size: 12px;
+//        line-height: 1.5;
+//        opacity: 0.8;
+//        background-color: #ffffff;
+//        color: #000000;
       }
       .field-name-body {
-        display: block;
+//        display: block;
       }
       .links {
       }
@@ -697,10 +701,25 @@ body.section-big-day {
 
 
 body.section-big-day {
-  iframe {
-    display:inline-block;
-    vertical-align: top;
+
+  .google-map {
+    position: relative;
+    padding-bottom: 75%; // This is the aspect ratio
+    height: 0;
+    overflow: hidden;
   }
+  .google-map iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+//  iframe {
+//    display:inline-block;
+//    vertical-align: top;
+//  }
   .address {
     padding-left:10px;
     display:inline-block;
@@ -919,13 +938,13 @@ body.section-who-is-coming {
 
     input[type="submit"] {
       color: #fff;
-      background-color: #428bca;
-      border-color: #357ebd;
+      background-color: #ff7f50;
+      border-color: #ff7f50;
 
       &:hover {
         color: #fff;
         background-color: #3276b1;
-        border-color: #285e8e;
+        border-color: #38838e;
       }
 
     }
@@ -1016,6 +1035,9 @@ body.section-who-is-coming {
     }
   }
 
+
+
+
   .view-accomodation {
     .views-row {
       margin-left: 0px;
@@ -1071,5 +1093,13 @@ body.section-who-is-coming {
 body.section-slightly-planned-fun {
   p.submitted {
     display: none;
+  }
+}
+
+body.section-travel {
+  #block-skyscanner-skyscanner {
+    h2.block-title {
+      display: none;
+    }
   }
 }
