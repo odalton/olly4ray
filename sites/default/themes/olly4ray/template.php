@@ -195,6 +195,14 @@ function olly4ray_preprocess_page(&$variables) {
       case 'Slightly Planned Fun':
         $variables['main_menu'][$key]['title'] = '<span class="icon icon-bike"></span><span class="menu-item">'. $variables['main_menu'][$key]['title'] .'</span>';
         break;
+        
+      case 'Information':
+        $variables['main_menu'][$key]['title'] = '<span style="color:#3299CC;" class="icon icon-info"></span><span class="menu-item">'. $variables['main_menu'][$key]['title'] .'</span>';
+        break;
+
+      case 'Calendar':
+        $variables['main_menu'][$key]['title'] = '<span style="color:red;" class="icon icon-calendar"></span><span class="menu-item">'. $variables['main_menu'][$key]['title'] .'</span>';
+        break;     
 
     }
 

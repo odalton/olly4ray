@@ -1103,3 +1103,20 @@ body.section-travel {
     }
   }
 }
+
+
+.page-calendar,
+.section-calendar {
+
+  .date-nav-wrapper {
+    ul {
+      list-style: none;
+    }
+  }
+
+  .date-box {
+    .month, .day {
+      min-width: 35px;
+    }
+  }
+}
